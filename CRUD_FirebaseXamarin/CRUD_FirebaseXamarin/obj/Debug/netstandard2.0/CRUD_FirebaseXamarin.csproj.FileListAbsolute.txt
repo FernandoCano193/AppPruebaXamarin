@@ -1,0 +1,15 @@
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\bin\Debug\netstandard2.0\CRUD_FirebaseXamarin.deps.json
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\bin\Debug\netstandard2.0\CRUD_FirebaseXamarin.dll
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\bin\Debug\netstandard2.0\CRUD_FirebaseXamarin.pdb
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.csproj.AssemblyReference.cache
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.AssemblyInfoInputs.cache
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.AssemblyInfo.cs
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.csproj.CoreCompileInputs.cache
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.dll
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\refint\CRUD_FirebaseXamarin.dll
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\CRUD_FirebaseXamarin.pdb
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\ref\CRUD_FirebaseXamarin.dll
+C:\Users\ferna\OneDrive\Documentos\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\CRUD_FirebaseXamarin\obj\Debug\netstandard2.0\View\Usuarios.xaml.g.cs
