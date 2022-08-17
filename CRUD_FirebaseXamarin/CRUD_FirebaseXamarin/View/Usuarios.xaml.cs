@@ -28,9 +28,37 @@ namespace CRUD_FirebaseXamarin.View
         //VARIABLE DECLARADA PARA SUBIR LA IMAGEN
         MediaFile Imagen;
 
+        //RUTA DE LA FOTO O IMAGEN
+        string RutaFoto;
+        string IDUsuario;
+
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
             await InsertarUsuarios();
+            await SubirImagenFirebase();
+            await EditarImagen();
+        }
+
+        private async Task EditarImagen()
+        {
+            VMUsuarios funcion = new VMUsuarios();
+            MUsuarios parametros = new MUsuarios();
+
+            //SE ASIGNAN LOS VALORES ACTUALIZADOS POR LA RUTA DE LA IMAGEN Y EL ID
+            parametros.Icono = RutaFoto;
+            parametros.IdUsuario = IDUsuario;
+
+            parametros.Usuario = txtUsuario.Text;
+            parametros.Password = txtPassword.Text;
+            parametros.Estado = "Activo";
+
+            await funcion.EditarImagen(parametros);
+
+            await DisplayAlert("Listo", "Nuevo usuario agregado", "OK");
+
+            //SE VUELVE A LLAMAR EL MOSTRAR USUARIO
+            await MostrarUsuarios();
+
         }
 
         private async Task InsertarUsuarios()
@@ -44,9 +72,8 @@ namespace CRUD_FirebaseXamarin.View
             parametros.Estado = "-";
 
 
-            await funcion.Insertar_Usuario(parametros);
-            await DisplayAlert("Listo", "Nuevo usuario agregado", "OK");
-            await MostrarUsuarios();
+            IDUsuario = await funcion.Insertar_Usuario(parametros);
+            //await DisplayAlert("Listo", "Nuevo usuario agregado", "OK");
         }
 
         private async Task MostrarUsuarios()
@@ -82,6 +109,14 @@ namespace CRUD_FirebaseXamarin.View
             {
                 Debug.WriteLine(ex.Message);
             }
+        }
+
+        private async Task SubirImagenFirebase()
+        {
+            VMUsuarios funcion = new VMUsuarios();
+
+            //RutaFoto RECUPERA LA RUTA WEB DE LA IMAGEN
+            RutaFoto = await funcion.SubirImagenStorage(IDUsuario,Imagen.GetStream());
         }
     }
 }
