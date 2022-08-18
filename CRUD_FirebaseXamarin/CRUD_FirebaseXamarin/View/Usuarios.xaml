@@ -12,43 +12,72 @@
         
         <StackLayout Grid.Row="0">
 
-            <Image x:Name="Foto"/>
+            <Image x:Name="Foto"
+                   HeightRequest="150"/>
             <Entry Placeholder="Usuario" x:Name="txtUsuario"/>
             <Entry Placeholder="Contraseña" x:Name="txtPassword"/>
             <Button Text="Agregar imagen"
                     x:Name="btnAgregarImagen"
                     Clicked="btnAgregarImagen_Clicked"/>
             <Button Text="Guardar" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"/>
+            <Button Text="Eliminar" x:Name="btnEliminar"
+                    Clicked="btnEliminar_Clicked"/>
 
         </StackLayout>
 
-        <CollectionView Grid.Row="1" x:Name="ListaUsuarios">
+        <CollectionView Grid.Row="1" x:Name="ListaUsuarios"
+                        VerticalScrollBarVisibility="Never"
+                        Margin="5">
+
+            <!--DIVIDE LA LISTA EN DOS COLUMNAS-->
+            
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"/>
+            </CollectionView.ItemsLayout>
+            
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                   
+                    <!--SE AGREGA UN DECORADOR-->
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="130"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
+                        <Frame CornerRadius="5"
+                               Margin="5"
+                               IsClippedToBounds="True"
+                               Padding="0">
 
-                        <ImageButton Grid.Row="0" Source="{Binding Icono}"
-                                     BackgroundColor="WhiteSmoke"
-                                     HorizontalOptions="Fill"
-                                     VerticalOptions="Fill"
-                                     Aspect="AspectFit"
-                                     x:Name="btnIcono"/>
+                            <Grid>
 
-                        <Label Grid.Row="1" Text="{Binding Usuario}"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Center"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"
-                               FontAttributes="Bold"
-                               FontSize="14"
-                               TextColor="White"
-                               BackgroundColor="Black"/>
-                      
-                        
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="130"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+
+                                <ImageButton Grid.Row="0" Source="{Binding Icono}"
+                                             CommandParameter="{Binding IdUsuario}"
+                                             BackgroundColor="WhiteSmoke"
+                                             HorizontalOptions="Fill"
+                                             VerticalOptions="Fill"
+                                             Aspect="AspectFit"
+                                             x:Name="btnIcono"
+                                             Padding="-10"
+                                             Clicked="btnIcono_Clicked"/>
+
+                                <Label Grid.Row="1" Text="{Binding Usuario}"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand"
+                                       FontAttributes="Bold"
+                                       FontSize="14"
+                                       TextColor="White"
+                                       BackgroundColor="Black"/>
+
+
+                            </Grid>
+
+                        </Frame>
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

@@ -15,7 +15,7 @@ namespace CRUD_FirebaseXamarin.ViewModel
     {
         //SE ENLISTAN LOS USUARIOS
         List<MUsuarios> Usuarios = new List<MUsuarios>();
-        
+
         string RutaFoto;
 
         string IDUsuario;
@@ -76,7 +76,7 @@ namespace CRUD_FirebaseXamarin.ViewModel
             //PROCEDIMIENTO PARA RECUPERAR EL ID AL CUAL SE DEBE DE EDITAR LA IMAGEN O FOTO
             var data = (await ConexionFirebase.firebase
                 .Child("Usuarios")
-                .OnceAsync<MUsuarios>()).Where(a => a.Key==parametros.IdUsuario).FirstOrDefault();
+                .OnceAsync<MUsuarios>()).Where(a => a.Key == parametros.IdUsuario).FirstOrDefault();
 
             await ConexionFirebase.firebase
                 .Child("Usuarios")
@@ -88,6 +88,44 @@ namespace CRUD_FirebaseXamarin.ViewModel
                     Estado = parametros.Estado,
                     Icono = parametros.Icono
                 });
+        }
+
+        public async Task EliminarUsuarios(MUsuarios parametros)
+        {
+            var data = (await ConexionFirebase.firebase
+                .Child("Usuarios")
+                .OnceAsync<MUsuarios>()).Where(a => a.Key == parametros.IdUsuario).FirstOrDefault();
+
+            await ConexionFirebase.firebase
+                .Child("Usuarios")
+                .Child(data.Key).DeleteAsync();
+        } 
+
+        public async Task EliminarImagen(string Nombre)
+        {
+            await new FirebaseStorage("ejemplocrud-96a6b.appspot.com")
+                .Child("Usuarios")
+                .Child(Nombre).DeleteAsync();
+        }
+
+        public async Task<List<MUsuarios>> ObtenerDatosUsuarios(MUsuarios parametros)
+        {
+            var data = (await ConexionFirebase.firebase
+                .Child("Usuarios")
+                .OrderByKey()
+                .OnceAsync<MUsuarios>()).Where(a => a.Key == parametros.IdUsuario);
+
+            //CON ESTE FOREACH SE RECUPERAN LOS DATOS QUE SE VAN A MOSTRAR AL HACER CLICK
+            foreach(var usuario in data)
+            {
+                parametros.Usuario=usuario.Object.Usuario;
+                parametros.Password=usuario.Object.Password;
+                parametros.Icono = usuario.Object.Icono;
+                parametros.Estado = usuario.Object.Estado;
+                Usuarios.Add(parametros);
+            }
+
+            return Usuarios;
         }
     }
 }

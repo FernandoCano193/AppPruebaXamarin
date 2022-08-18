@@ -32,6 +32,9 @@ namespace CRUD_FirebaseXamarin.View {
         private global::Xamarin.Forms.Button btnGuardar;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button btnEliminar;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.CollectionView ListaUsuarios;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -42,6 +45,7 @@ namespace CRUD_FirebaseXamarin.View {
             txtPassword = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "txtPassword");
             btnAgregarImagen = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnAgregarImagen");
             btnGuardar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnGuardar");
+            btnEliminar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnEliminar");
             ListaUsuarios = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CollectionView>(this, "ListaUsuarios");
         }
     }

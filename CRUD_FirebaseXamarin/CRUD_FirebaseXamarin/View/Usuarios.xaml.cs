@@ -118,5 +118,49 @@ namespace CRUD_FirebaseXamarin.View
             //RutaFoto RECUPERA LA RUTA WEB DE LA IMAGEN
             RutaFoto = await funcion.SubirImagenStorage(IDUsuario,Imagen.GetStream());
         }
+
+        private async void btnIcono_Clicked(object sender, EventArgs e)
+        {
+            //SE RECUPERA EL ID AL HACER CLICK
+            IDUsuario = (sender as ImageButton).CommandParameter.ToString();
+            await ObtenerDatosUsuarios();
+        }
+
+        private async Task ObtenerDatosUsuarios()
+        {
+            var funcion = new VMUsuarios();
+            var parametros = new MUsuarios();
+            parametros.IdUsuario = IDUsuario;
+            var datos = await funcion.ObtenerDatosUsuarios(parametros);
+
+            foreach(var fila in datos)
+            {
+                txtPassword.Text = fila.Password;
+                txtUsuario.Text = fila.Usuario;
+                //FOTO SE SACO DEL NOMBRE QUE SE LE DIO AL OBJETO DE IMAGE EN EL XAMEL
+                Foto.Source = fila.Icono;    
+            }
+        }
+
+        private async Task EliminarUsuario()
+        {
+            VMUsuarios funcion = new VMUsuarios();
+            MUsuarios parametros = new MUsuarios();
+            parametros.IdUsuario = IDUsuario;
+            await funcion.EliminarUsuarios(parametros);
+        }
+
+        private async Task EliminarImagen()
+        {
+            VMUsuarios funcion = new VMUsuarios();
+            //SE PASA EL NOMBRE DE LA IMAGEN QUE EN ESTE CASO ES IDUsuario.jpg
+            await funcion.EliminarImagen(IDUsuario + ".jpg");
+        }
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
+        {
+            await EliminarUsuario();
+            await EliminarImagen();
+            await MostrarUsuarios();
+        }
     }
 }
