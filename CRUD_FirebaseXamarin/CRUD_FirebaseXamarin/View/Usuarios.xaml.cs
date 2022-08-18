@@ -31,6 +31,8 @@ namespace CRUD_FirebaseXamarin.View
         //RUTA DE LA FOTO O IMAGEN
         string RutaFoto;
         string IDUsuario;
+        string Estado;
+        bool EstadoImagen;
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
@@ -97,13 +99,21 @@ namespace CRUD_FirebaseXamarin.View
                     PhotoSize=PhotoSize.Medium
                 });
                 if (Imagen == null)
-                    return;
-                
-                Foto.Source = ImageSource.FromStream(() =>
                 {
-                    var RutaImagen = Imagen.GetStream();
-                    return RutaImagen;
-                });
+                    EstadoImagen = false;
+                    return;
+                }
+                else
+                {
+                    Foto.Source = ImageSource.FromStream(() =>
+                    {
+                        var RutaImagen = Imagen.GetStream();
+                        return RutaImagen;
+                    });
+
+                    EstadoImagen = true;
+
+                }
             }
             catch(Exception ex)
             {
@@ -138,7 +148,9 @@ namespace CRUD_FirebaseXamarin.View
                 txtPassword.Text = fila.Password;
                 txtUsuario.Text = fila.Usuario;
                 //FOTO SE SACO DEL NOMBRE QUE SE LE DIO AL OBJETO DE IMAGE EN EL XAMEL
-                Foto.Source = fila.Icono;    
+                Foto.Source = fila.Icono;
+                Estado = fila.Estado;
+                RutaFoto = fila.Icono;
             }
         }
 
@@ -161,6 +173,16 @@ namespace CRUD_FirebaseXamarin.View
             await EliminarUsuario();
             await EliminarImagen();
             await MostrarUsuarios();
+        }
+
+        private async void btnEditar_Clicked(object sender, EventArgs e)
+        {
+            if(EstadoImagen==true)
+            {
+                await EliminarImagen();
+                await SubirImagenFirebase();
+            }
+            await EditarImagen();
         }
     }
 }
